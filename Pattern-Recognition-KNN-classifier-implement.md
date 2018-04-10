@@ -5,6 +5,7 @@
  
 
 1. Store [UCI dataset - Wine Data Set](https://archive.ics.uci.edu/ml/datasets/wine) as pandas dataframe, and store every feature and label into variable X and y respectively.
+```    
     import pandas as pd
     
     def load_feature(filename):
@@ -20,6 +21,7 @@
     def main():
         X = load_feature('wine.data')
         y = load_label('wine.data')
+```
 ![print(X.head())](https://d2mxuefqeaa7sj.cloudfront.net/s_B6396EEFC5C76E03FBA1C4BD007CC4555B362DE3F3C76AEF56335C3A30B0C786_1523279485937_image.png)
 ![print(y.head())](https://d2mxuefqeaa7sj.cloudfront.net/s_B6396EEFC5C76E03FBA1C4BD007CC4555B362DE3F3C76AEF56335C3A30B0C786_1523279655694_2018-04-09+21-12-35+.png)
 
