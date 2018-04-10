@@ -56,9 +56,9 @@
 
 
 4. **knn_classify**  
-  1. choose k largest values of cosine similarity in each row. (It means that k training data nodes which is close to the current testing data node.) 
-  2. Compare labels of this k nodes and choose the most common label as the result of the prediction of the testing data
-    ```
+  a. choose k largest values of cosine similarity in each row. (It means that k training data nodes which is close to the current testing data node.) 
+  b. Compare labels of this k nodes and choose the most common label as the result of the prediction of the testing data
+  ```
     def knn_classify(X_train, X_test, y_train, y_test, k):
         cs_array = cos_sim(X_train, X_test, y_train, y_test)
         k_list = []
@@ -78,7 +78,7 @@
             print("====================")
         y_pred = pd.Series(y_pred_list)
         return y_pred
-    ```
+ ```
 ![](https://d2mxuefqeaa7sj.cloudfront.net/s_B6396EEFC5C76E03FBA1C4BD007CC4555B362DE3F3C76AEF56335C3A30B0C786_1523280363388_image.png)
 
 
