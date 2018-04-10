@@ -29,16 +29,18 @@
 
 2. Split training data and testing data.(based on sklearn.model_selection.train_test_split)
   The store them in X_train, X_test, y_train, y_test.
+    ```
     from sklearn.model_selection import train_test_split
     def main():
         X = load_feature('wine.data')
         y = load_label('wine.data')
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.5)
-
+    ```
 
 
 
 3. Calculate cosine similarity of all testing data and training data, then store them in the cs_array(row:X_test_arr, col: X_train).
+    ```
     from sklearn.model_selection import train_test_split
     import numpy as np
     
@@ -47,6 +49,7 @@
         X_test_arr = np.array(X_test.values)
         cs_array = cosine_similarity(X_test_arr,X_train_arr)
         return cs_array
+    ```
 ![print(cs_array)](https://d2mxuefqeaa7sj.cloudfront.net/s_B6396EEFC5C76E03FBA1C4BD007CC4555B362DE3F3C76AEF56335C3A30B0C786_1523279809296_image.png)
 
 
@@ -55,6 +58,7 @@
 4. **knn_classify**  
   1. choose k largest values of cosine similarity in each row. (It means that k training data nodes which is close to the current testing data node.) 
   2. Compare labels of this k nodes and choose the most common label as the result of the prediction of the testing data
+    ```
     def knn_classify(X_train, X_test, y_train, y_test, k):
         cs_array = cos_sim(X_train, X_test, y_train, y_test)
         k_list = []
@@ -74,17 +78,20 @@
             print("====================")
         y_pred = pd.Series(y_pred_list)
         return y_pred
+    ```
 ![](https://d2mxuefqeaa7sj.cloudfront.net/s_B6396EEFC5C76E03FBA1C4BD007CC4555B362DE3F3C76AEF56335C3A30B0C786_1523280363388_image.png)
 
 
 
 5. Check the classifier report and accuracy 
+    ```
     from sklearn.metrics import classification_report as clf_report
     from sklearn.metrics import accuracy_score
     
     y_pred = knn_classify(X_train, X_test, y_train, y_test, 5)
     accurancy = accuracy_score(y_test,y_pred)
     report = clf_report(y_test,y_pred)
+    ```
 ![](https://d2mxuefqeaa7sj.cloudfront.net/s_B6396EEFC5C76E03FBA1C4BD007CC4555B362DE3F3C76AEF56335C3A30B0C786_1523280431669_image.png)
 
 
